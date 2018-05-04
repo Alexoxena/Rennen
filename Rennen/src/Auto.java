@@ -5,9 +5,9 @@ public class Auto {
 	int nummer; //Identifizierung unterschiedliche Autos
 	double vmax; //Variablen werden bestimmt, nicht initialisiert
 	double speed;//eigentliche Geschwindigkeit, bei Fehlern geändert, sonst vmax
-	double capacity;
-	double consumption;
-	double energy_remaining;
+	double capacity; //Akkukapazität
+	double consumption; //Stromeverbrauch
+	double energy_remaining; //verbleibende Energie
 	
 
 	public Auto(int nummer, double vmax, double capacity, double consumption){ //Konstruktor Objekt Auto, Eigenschaften werden übergeben
@@ -31,17 +31,17 @@ public class Auto {
 	}
 
 	public void aufladen(){ //Aufladen des Akkus
-		energy_remaining=capacity; //Akku wird wieder voll (kapazitätat)
-		speed=speed-80; //Durchschnittsgeschwindigkeit für Runde sinkt, da Aufladen zeit braucht
+		energy_remaining = capacity; //Akku wird wieder voll (kapazitätat)
+		speed = speed-80; //Durchschnittsgeschwindigkeit für Runde sinkt, da Aufladen zeit braucht
 	}
 	
 	public String toString(){ //Daten für Auto werden ausgegeben
-		return "Startnummer :" +nummer+ //\n ist Zeilenumbruch; großer String als Rückgabewert
-				"\n Vmax:"+vmax+
+		return "Startnummer: " +nummer+ //\n ist Zeilenumbruch; großer String als Rückgabewert
+				"\n Vmax: "+vmax+
 				"\n Derzeitige Durchschnittsgeschwindigkeit: "+speed+
 				"\n Akkukapazität: " +capacity+
 				"\n Restenergie: " +energy_remaining+
-				"\n Verbrauch auf 100 km:" +consumption;
+				"\n Verbrauch auf 100 km: " +consumption;
 		
 		
 		
