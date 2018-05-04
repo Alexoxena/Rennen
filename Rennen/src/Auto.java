@@ -3,7 +3,7 @@ import java.util.Random;
 public class Auto {
 	
 	int nummer; //Identifizierung unterschiedliche Autos
-	double vmax; //Variablen werden bestimmt, nicht initialisiert
+	double vmax; //Variablen werden bestimmt, nicht initialisiert, maximale Geschwindigkeit
 	double speed;//eigentliche Geschwindigkeit, bei Fehlern geändert, sonst vmax
 	double capacity; //Akkukapazität
 	double consumption; //Stromeverbrauch
