@@ -8,9 +8,9 @@ public class Auto {
 	double capacity; //Akkukapazität
 	double consumption; //Stromeverbrauch
 	double energy_remaining; //verbleibende Energie
-	int acc;
-	double range;
-	double time;
+	//int acc; accident, klappt nicht
+	double range; //Reichweite
+	double time; //zeit die bei Rennen benötigt wird
 	
 
 	public Auto(int nummer, double vmax, double capacity, double consumption){ //Konstruktor Objekt Auto, Eigenschaften werden übergeben
@@ -22,7 +22,7 @@ public class Auto {
 	}
 
 
-	public double fahren(int racelength){  //strecke in Rennen definiert, was passiert wenn man fährt, anderer Ansatz als Rest (nicht über Runden sondern allgemein)
+	public double fahren(double racelength, int round){  //strecke in Rennen definiert, was passiert wenn man fährt, anderer Ansatz als Rest (nicht über Runden sondern allgemein)
 		
 		Random random = new Random();
 
@@ -96,8 +96,7 @@ public class Auto {
 				"\n Derzeitige Durchschnittsgeschwindigkeit: "+speed+
 				"\n Akkukapazität: " +capacity+
 				"\n Restenergie: " +energy_remaining+
-				"\n Verbrauch auf 100 km: " +consumption+
-				"\n Wahrscheinlichkeit Unfall: "+acc+"%";
+				"\n Verbrauch auf 100 km: " +consumption;
 		
 		
 	}
