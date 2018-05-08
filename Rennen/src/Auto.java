@@ -10,6 +10,7 @@ public class Auto {
 	double energy_remaining; //verbleibende Energie
 	int acc;
 	double range;
+	double time;
 	
 
 	public Auto(int nummer, double vmax, double capacity, double consumption){ //Konstruktor Objekt Auto, Eigenschaften werden übergeben
@@ -21,27 +22,31 @@ public class Auto {
 	}
 
 
-	public double fahren(int racelength){  //strecke in Rennen definiert, was passiert wenn man fährt
+	public double fahren(int racelength){  //strecke in Rennen definiert, was passiert wenn man fährt, anderer Ansatz als Rest (nicht über Runden sondern allgemein)
 		
 		Random random = new Random();
 
 		
-		double range=(capacity/consumption)*100;		
-		double stops= Math.ceil(racelength/range);
-		double stoptime = 21 + capacity + random.nextInt(stops*3);
+		double range=(capacity/consumption)*100;	//reichweite	
+		double stops= Math.ceil(racelength/range); //Anzahl Boxenstops (Aufladen)
+		double stoptime = 21 + capacity + random.nextInt((int)stops*3); // Zeit pro stop
+		double failure = failure();
+		double speed=vmax-failure;
 		
-		return 0.0;
+		double time = stops*stoptime +(racelength/speed)*3600;
+		
+		return time;
 
 		
 	
 	}
 	
-	public int failure(){ //Fehler (Auto fährt langsamer)
+	public double failure(){ //Fehler (Auto fährt langsamer)
 		
 		Random random = new Random(10); //zufällliger Wert, bestimmt ob und wie gravierend Fehler ist
-		int failure = random.nextInt(10);
+		double failure = random.nextInt(10);
 		speed = vmax-failure; //aktuelle Geschwindigkeit ist Maximalgeschwindigkeit-Fehlerfaktor (0-10)
-		return failure;
+		return vmax-failure;
 	}
 	
 	/*public int accident(int failure){ //ausprboieren Unfall -> Problem, klappt nicht (acc immer 0)
