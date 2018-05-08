@@ -27,11 +27,11 @@ public class Auto {
 		Random random = new Random();
 
 		
-		double range=(capacity/consumption)*100;	//reichweite	
-		double stops= Math.ceil(racelength/range); //Anzahl Boxenstops (Aufladen)
+		double range = (capacity/consumption)*100;	//reichweite	
+		double stops = Math.ceil(racelength/range); //Anzahl Boxenstops (Aufladen)
 		double stoptime = 21 + capacity + random.nextInt((int)stops*3); // Zeit pro stop
 		double failure = failure();
-		double speed=vmax-failure;
+		double speed = failure;
 		
 		double time = stops*stoptime +(racelength/speed)*3600;
 		
