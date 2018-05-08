@@ -9,6 +9,7 @@ public class Auto {
 	double consumption; //Stromeverbrauch
 	double energy_remaining; //verbleibende Energie
 	int acc;
+	double range;
 	
 
 	public Auto(int nummer, double vmax, double capacity, double consumption){ //Konstruktor Objekt Auto, Eigenschaften werden übergeben
@@ -20,7 +21,18 @@ public class Auto {
 	}
 
 
-	public void fahren(){
+	public double fahren(int racelength){  //strecke in Rennen definiert, was passiert wenn man fährt
+		
+		Random random = new Random();
+
+		
+		double range=(capacity/consumption)*100;		
+		double stops= Math.ceil(racelength/range);
+		double stoptime = 21 + capacity + random.nextInt(stops*3);
+		
+		return 0.0;
+
+		
 	
 	}
 	
@@ -32,7 +44,7 @@ public class Auto {
 		return failure;
 	}
 	
-	/*public int accident(int failure){ //ausprboieren Unnfall -> Problem, klappt nicht (acc immer 0)
+	/*public int accident(int failure){ //ausprboieren Unfall -> Problem, klappt nicht (acc immer 0)
 		
 		
 		if (failure>5){
