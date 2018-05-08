@@ -4,7 +4,7 @@ public class Rennen {
 	public static void main(String[] args) {
 		
 		Auto a1 = new Auto (1, 200, 60, 20); //neue Autos werden erstelt, Werte werden übergeben
-		Auto a2 = new Auto (2, 240, 70, 30);
+		Auto a2 = new Auto (2, 220, 50, 30);
 		
 		Rennstrecke nordschleife= new Rennstrecke ("Nordschleife", 20.83, 60);
 		
