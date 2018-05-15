@@ -11,6 +11,7 @@ public class Auto {
 	//int acc; accident, klappt nicht
 	double range; //Reichweite
 	double time; //zeit die bei Rennen benötigt wird
+	double failure;
 	
 
 	public Auto(int nummer, double vmax, double capacity, double consumption){ //Konstruktor Objekt Auto, Eigenschaften werden übergeben
@@ -27,11 +28,12 @@ public class Auto {
 		Random random = new Random();
 
 		
-		double range = (capacity/consumption)*100;	//reichweite	
+		range = (capacity/consumption)*100;	//reichweite	
 		double stops = Math.ceil(racelength/range); //Anzahl Boxenstops (Aufladen)
 		double stoptime = 21 + capacity + random.nextInt((int)stops*3); // Zeit pro stop
-		double failure = failure();
-		double speed = failure;
+		failure = failure(); //failure ist Objektvariable
+		speed = vmax-failure;		 //aktuelle Geschwindigkeit ist Maximalgeschwindigkeit-Fehlerfaktor (0-10)
+
 		
 		double time = stops*stoptime +(racelength/speed)*3600;
 		
@@ -43,46 +45,14 @@ public class Auto {
 	
 	public double failure(){ //Fehler (Auto fährt langsamer)
 		
-		Random random = new Random(10); //zufällliger Wert, bestimmt ob und wie gravierend Fehler ist
-		double failure = random.nextInt(10);
-		speed = vmax-failure; //aktuelle Geschwindigkeit ist Maximalgeschwindigkeit-Fehlerfaktor (0-10)
-		return vmax-failure;
+		Random random = new Random(); //zufällliger Wert, bestimmt ob und wie gravierend Fehler ist
+		int failure = random.nextInt(10);
+		
+		return failure;
+		
 	}
 	
-	/*public int accident(int failure){ //ausprboieren Unfall -> Problem, klappt nicht (acc immer 0)
-		
-		
-		if (failure>5){
-			Random random=new Random (9);
-			int probAcc= random.nextInt(9);
-			if (probAcc==9){
-				 //acc = true;
-				acc=100;
-				 return acc;
-				}
-			else{
-				 //acc = false;
-				acc=probAcc*failure;
-				 return acc;
-			}
-		}
-		else{
-			Random random = new Random (50);
-			int  probAcc = random.nextInt(50);
-			
-			if (probAcc==50){
-				//acc = true;
-				acc=100;
-				return acc;
-			}
-			else{
-				//acc = false;
-				int acc=probAcc*failure;
-				return acc;
-			}
-		}
-		
-	}*/
+
 	
 
 	public void aufladen(){ //Aufladen des Akkus
@@ -96,10 +66,19 @@ public class Auto {
 				"\n Derzeitige Durchschnittsgeschwindigkeit: "+speed+
 				"\n Akkukapazität: " +capacity+
 				"\n Restenergie: " +energy_remaining+
-				"\n Verbrauch auf 100 km: " +consumption;
+				"\n Verbrauch auf 100 km: " +consumption+
+				"\n Letzter Fehler: " +failure();
 		
 		
 	}
 	
+	public double getFailure(){ //Fehler wird ausgegeben, macht toString Methode unnötig
+		
+		return failure;
+	}
 	
+	/*public double getEnergyRemaining(){
+		return
+	
+	}*/
 }
