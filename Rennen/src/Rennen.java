@@ -5,6 +5,7 @@ public class Rennen {
 		
 		Auto a1 = new Auto (1, 200, 60, 20); //neue Autos werden erstelt, Werte werden übergeben
 		Auto a2 = new Auto (2, 220, 50, 30);
+		Auto a3 = new Auto (3, 220, 40, 40);
 		
 		Rennstrecke nordschleife= new Rennstrecke ("Nordschleife", 20.83, 60);
 		
@@ -16,6 +17,12 @@ public class Rennen {
 		
 		System.out.println("Fahrzeit: "+(a2.fahren(nordschleife.racelength,nordschleife.round))/3600+" Stunden"); //Fahrzeit Auto 2
 		System.out.println(a2);
+		System.out.println();
+		
+		System.out.println("Fahrzeit: "+(a3.fahren(nordschleife.racelength,nordschleife.round))/3600+" Stunden");//rennstrecke  wird aufgerufen mit bestimmten auto, werte werden ausgegeben
+		System.out.println(a3); //Daten ausgeben
+		System.out.println();
+		
 	}
 
 }
