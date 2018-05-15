@@ -8,14 +8,14 @@ public class Rennen {
 		
 		Rennstrecke nordschleife= new Rennstrecke ("Nordschleife", 20.83, 60);
 		
-		System.out.println(a1); //Daten ausgeben
+		
 		System.out.println("Fahrzeit: "+(a1.fahren(nordschleife.racelength,nordschleife.round))/3600+" Stunden");//rennstrecke  wird aufgerufen mit bestimmten auto, werte werden ausgegeben
-	
+		System.out.println(a1); //Daten ausgeben
 		System.out.println();
-		System.out.println(a2);
+		
 		
 		System.out.println("Fahrzeit: "+(a2.fahren(nordschleife.racelength,nordschleife.round))/3600+" Stunden"); //Fahrzeit Auto 2
-		
+		System.out.println(a2);
 	}
 
 }
